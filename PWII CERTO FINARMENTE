@@ -1,0 +1,60 @@
+<?php
+class Usuario{
+    private $rm
+    private $nome
+    private $email
+    private $cpf
+    private $pdo 
+
+    public function conectar{
+        $dns = "mysql:dbname=usuariopwii;host=localhost";
+        $dbUser = "root";
+        $dbPass = "";
+
+        try{
+            $this->pdo = new PDO($dns, $dbUser, $dbPass);
+        } catch (\Throwable $th){
+            return false;
+        }
+    }
+
+    public getRM(rm){
+        return $this->rm;
+    }
+
+    public getNome(nome){
+        return $this->nome;
+    }
+
+    public getEmail(email){
+        return $this->email;
+    }
+
+    public getCpf(cpf){
+        return $this->cpf;
+    }
+
+    public setRM($rm){
+        $this->rm = $rm;
+    }
+
+    public setNome($nome){
+        $this->nome = $nome;
+    }
+    
+    public setEmail($email){
+        $this->email = $email;
+    }
+
+    public getCpf($cpf){
+        $this->cpf = $cpf;
+    }
+
+    public cadastrar($nome, $email, $cpf){
+        $sql = "INSERT INTO aluno SET RM = :r, nome = :n,  email = :e, cpf = :c;"
+        $this->pdo->prepare ($sql); 
+        $stmt->bindValue(":n", $nome) 
+
+    }
+
+}
